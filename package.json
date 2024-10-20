@@ -1,0 +1,29 @@
+{
+  "name": "youtube-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dl": "tsx src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeterOzbot/youtube-downloader.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/PeterOzbot/youtube-downloader/issues"
+  },
+  "homepage": "https://github.com/PeterOzbot/youtube-downloader#readme",
+  "dependencies": {
+    "youtube-dl-exec": "^3.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}
