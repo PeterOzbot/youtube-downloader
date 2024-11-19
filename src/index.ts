@@ -6,7 +6,7 @@ import { download360pVideo } from './downloader';
     const urls = await getUrlsFromFile(basePath);
     for (const url of urls) {
         console.log("Downloading: " + url);
-        await download360pVideo(url);
+        await download360pVideo(url, basePath);
     }
 
 })();

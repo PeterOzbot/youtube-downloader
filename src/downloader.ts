@@ -1,7 +1,7 @@
-import { sanitizeFilename } from 'utils';
+import { createDirectory, sanitizeFilename } from 'utils';
 import youtubedl, { Flags } from 'youtube-dl-exec';
 
-export async function download360pVideo(url: string) {
+export async function download360pVideo(url: string, basePath: string): Promise<void> {
     try {
         // get title
         const title = await youtubedl(url, {
@@ -30,10 +30,13 @@ export async function download360pVideo(url: string) {
             throw new Error('360p format with sound not found');
         }
 
+        // create directory for output if needed
+        await createDirectory(`${basePath}/output`);
+
         // Download the video in 360p format with sound and save as MP4
         await youtubedl(url, {
             format: `${formatCode}+bestaudio`,
-            output: `${outputFileName}.mp4`,
+            output: `${basePath}/output/${outputFileName}.mp4`,
             'merge-output-format': 'mp4'
         } as Flags);
 
